@@ -2,7 +2,7 @@
 %Constants/Givens/assumptions
 TD = 25;%ft
 e = 1.5E-4; % Roughness
-PD = .4635; % ft
+PD = 4/12; % ft
 Ktot = .5+10+1.4*2;
 L = 150; %ft
 h1 = 60;%ft 
@@ -30,11 +30,10 @@ f2 = f1;
 V=((2*g*hOp)/(1-(A2/A1)^2+(f1*L)/PD+Ktot))^.5; 
 Re = (rho*V*PD)/mu;
 f1 = .25/(log10((e/3.7*PD)+5.74/(Re^.9))^2);
-DataHold1 = [DataHold1;f2,f1,V,Re];
+DataHold1 = [DataHold1;hOp,f2,f1,V,Re];
 end
 dh = -A2/A1*V*dt;
 hOp = hOp+dh;
 DataHold2 = [DataHold2;hOphold,hOp,dh,V,Re,f1,time,PD];
-DataHold1 = [DataHold1;0,0,0,0];
 f1 = .02; 
 end 
