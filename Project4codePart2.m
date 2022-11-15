@@ -7,7 +7,7 @@ Ktot = .5+10+1.4*2;
 L = 150; %ft
 h1 = 60;%ft 
 h2 = 10;%ft
-p1 = 20; %psig
+p1 = 20*144; %psig
 p2 = 0; %psig
 A1 = (TD^2*pi)/4;
 A2 = (PD^2*pi)/4;
@@ -19,7 +19,7 @@ f2 = 1;
 DataHold1 = [];
 DataHold2 = []; 
 dt = 100; 
-hOp = h1 ;
+hOp = h1+h2 ;
 time = 0; 
 
 while (hOp>=h2)

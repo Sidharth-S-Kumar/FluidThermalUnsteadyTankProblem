@@ -19,7 +19,7 @@ f2 = 1;
 DataHold1 = [];
 DataHold2 = []; 
 dt = 100; 
-hOp = h1 ;
+hOp = h1+h2 ;
 time = 0; 
 
 while (hOp>=h2)
