@@ -2,12 +2,12 @@
 %Constants/Givens/assumptions
 TD = 25;%ft
 e = 1.5E-4; % Roughness
-PD = .4635; % ft
+PD = 4/12; % ft
 Ktot = .5+10+1.4*2;
 L = 150; %ft
 h1 = 60;%ft 
 h2 = 10;%ft
-p1 = 0; %psig
+p1 = 20; %psig
 p2 = 0; %psig
 A1 = (TD^2*pi)/4;
 A2 = (PD^2*pi)/4;
@@ -27,7 +27,7 @@ time = time + dt;
 hOphold = hOp;
 while(f1 ~= f2)
 f2 = f1; 
-V=((rho*g*hOp+Pg)/(1-(A2/A1)^2+(f1*L)/PD+Ktot))^.5; 
+V= ((2*(p1+rho*g*hOp))/(rho*(1-(A2/A1)^2+f1*(L/PD)+Ktot)))^.5; 
 Re = (rho*V*PD)/mu;
 f1 = .25/(log10((e/3.7*PD)+5.74/(Re^.9))^2);
 DataHold1 = [DataHold1;f2,f1,V,Re];
